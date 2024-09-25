@@ -3,6 +3,8 @@
  */
 package org.example;
 
+import org.example.games.Games;
+
 public final class App {
 
     private App() {
@@ -10,6 +12,6 @@ public final class App {
     }
 
     public static void main(final String[] args) {
-        Cli.greet();
+        new Games().start(System.in);
     }
 }
