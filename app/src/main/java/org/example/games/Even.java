@@ -4,64 +4,41 @@ import java.io.InputStream;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Even implements Game {
-
-    private static final int TARGET_CORRECT_ANSWERS = 3;
+public class Even extends Game {
 
     private static final String YES_ANSWER = "yes";
     private static final String NO_ANSWER = "no";
 
-    private int correctAnswers;
-
     private Random random;
 
     @Override
-    public void run(InputStream inputStream) {
-        final String userName = Greet.greet(inputStream);
+    public String applyAnswer(int question, String answer) {
+        final boolean isCorrectAnswer = isCorrectAnswer(question, answer);
 
-        while (isGameSessionActive()) {
-            String answer = "";
-            int randomNumber = getRandomNumber();
-            boolean validAnswer = false;
-
-            while (!validAnswer) {
-                System.out.println(getRulesMessage());
-                String question = getQuestionMessage(randomNumber);
-                System.out.println(question);
-                answer = requestAnswer(inputStream);
-
-                validAnswer = isValidAnswer(answer);
-            }
-
-            if (isCorrectAnswer(randomNumber, answer)) {
-                correctAnswers++;
-                System.out.println(getCorrectAnswerMessage());
-            } else {
-                System.out.println(getWrongAnswerMessage(answer));
-            }
+        if (isCorrectAnswer) {
+            correctAnswers++;
+        } else {
+            wrongAnswers++;
         }
 
-        if (isWin()) {
-            System.out.println(getWinMessage(userName));
-        }
-        stop();
+        return isCorrectAnswer ? "Correct!" : getWrongAnswerMessage(answer);
     }
 
-    private void stop() {
-        correctAnswers = 0;
-    }
-
-
-    private String getRulesMessage() {
+    @Override
+    public String getRules() {
         return "Answer '" + YES_ANSWER + "' if the number is even, otherwise answer '" + NO_ANSWER + "'.";
     }
 
-    private String getQuestionMessage(int randomNumber) {
-        return "Question: " + randomNumber;
+    @Override
+    public int getQuestion() {
+        return getRandomNumber();
     }
 
-    private String getCorrectAnswerMessage() {
-        return "Correct!";
+    @Override
+    public boolean isAnswerValid(int question, String answer) {
+        answer = answer.toLowerCase();
+
+        return answer.equals(YES_ANSWER) || answer.equals(NO_ANSWER);
     }
 
     private String getWrongAnswerMessage(String wrongAnswer) {
@@ -82,36 +59,9 @@ public class Even implements Game {
         return random.nextInt(0, 100);
     }
 
-    private void outputQuestionMessage() {
-
-    }
-
-    private String requestAnswer(InputStream inputStream) {
-        Scanner scanner = new Scanner(inputStream);
-        return scanner.nextLine();
-    }
-
-    private boolean isGameSessionActive() {
-        return !isWin();
-    }
-
-    private boolean isValidAnswer(String answer) {
-        answer = answer.toLowerCase();
-
-        return answer.equals(YES_ANSWER) || answer.equals(NO_ANSWER);
-    }
-
-    private boolean isCorrectAnswer(int randomNumber, String answer) {
-        final boolean isEven = isEven(randomNumber);
+    boolean isCorrectAnswer(int randomNumber, String answer) {
+        final boolean isEven = randomNumber % 2 == 0;
 
         return isEven && answer.equals(YES_ANSWER) || !isEven && answer.equals(NO_ANSWER);
-    }
-
-    private boolean isEven(int randomNumber) {
-        return randomNumber % 2 == 0;
-    }
-
-    private boolean isWin() {
-        return correctAnswers >= TARGET_CORRECT_ANSWERS;
     }
 }
