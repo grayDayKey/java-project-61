@@ -3,6 +3,9 @@
  */
 package org.example;
 
+import org.example.games.*;
+import org.example.view.*;
+
 public final class App {
 
     private App() {
@@ -10,6 +13,40 @@ public final class App {
     }
 
     public static void main(final String[] args) {
-        new GameEngine().run();
+        final ViewMessages messages = new EngViewMessages();
+        final View view = new CliView(messages);
+
+        final String userName = view.showGreetings();
+        final Menu.Option menuOption = view.showMenu();
+
+        if (menuOption == Menu.Option.EXIT) {
+            return;
+        }
+
+        if (menuOption == Menu.Option.GREET) {
+            view.showGreetings();
+            return;
+        }
+
+        final Game<?> game;
+
+        if (menuOption == Menu.Option.CALC) {
+            game = new Calc();
+        } else {
+            game = new Even();
+        }
+
+        view.showRules(GameType.of(game));
+
+        while (!game.isWinConditionsAchieved() && !game.isLoseConditionsAchieved()) {
+            final QuestionAndAnswer<?> questionAndAnswer = game.getQuestionAndAnswer();
+
+            final String userAnswer = view.showQuestion(questionAndAnswer.question().toString());
+            final boolean isAnswerCorrect = game.handleUserAnswer(questionAndAnswer, userAnswer);
+
+            view.showAnswerResultMessage(isAnswerCorrect, userAnswer, questionAndAnswer.correctAnswer());
+        }
+
+        view.showGameResult(game.isWinConditionsAchieved(), userName);
     }
 }

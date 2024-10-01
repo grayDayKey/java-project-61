@@ -1,8 +1,6 @@
 package org.example.games;
 
-import java.io.InputStream;
-
-public abstract class Game {
+public abstract class Game<T> {
 
     static int defaultWinCondition = 3;
     static int defaultLoseCondition = 1;
@@ -22,13 +20,19 @@ public abstract class Game {
     int correctAnswers;
     int wrongAnswers;
 
-    public abstract String getRules();
+    public abstract QuestionAndAnswer<T> getQuestionAndAnswer();
 
-    public abstract int getQuestion();
+    public boolean handleUserAnswer(QuestionAndAnswer<?> questionAndAnswer, String userAnswer) {
+        final boolean isCorrect = questionAndAnswer.correctAnswer().equals(userAnswer);
 
-    public abstract boolean isAnswerValid(int question, String answer);
+        if (isCorrect) {
+            correctAnswers++;
+        } else {
+            wrongAnswers++;
+        }
 
-    public abstract String applyAnswer(int question, String answer);
+        return isCorrect;
+    }
 
     public boolean isWinConditionsAchieved() {
         return correctAnswers >= winCondition;
