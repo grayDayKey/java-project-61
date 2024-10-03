@@ -4,7 +4,8 @@ public enum GameType {
     EVEN,
     CALC,
     GCD,
-    PROGRESSION;
+    PROGRESSION,
+    PRIME;
 
     public static GameType of(Game<?> game) {
         if (game instanceof Calc) {
@@ -17,6 +18,10 @@ public enum GameType {
 
         if (game instanceof Progression) {
             return PROGRESSION;
+        }
+
+        if (game instanceof Prime) {
+            return PRIME;
         }
 
         return EVEN;

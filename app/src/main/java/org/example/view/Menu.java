@@ -11,6 +11,7 @@ public interface Menu {
         CALC(3),
         GCD(4),
         PROGRESSION(5),
+        PRIME(6),
         EXIT(0);
 
         Option(int number) {

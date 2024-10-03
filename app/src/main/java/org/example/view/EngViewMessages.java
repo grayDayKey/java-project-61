@@ -37,6 +37,9 @@ public class EngViewMessages implements ViewMessages {
             case PROGRESSION -> {
                 return "Progression";
             }
+            case PRIME -> {
+                return "Prime";
+            }
             case EXIT -> {
                 return "Exit";
             }
@@ -65,6 +68,9 @@ public class EngViewMessages implements ViewMessages {
             }
             case PROGRESSION -> {
                 return "What number is missing in the progression?";
+            }
+            case PRIME -> {
+                return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
             }
         }
 
