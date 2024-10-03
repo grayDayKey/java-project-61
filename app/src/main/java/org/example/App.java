@@ -34,6 +34,8 @@ public final class App {
             game = new Calc();
         } else if (menuOption == Menu.Option.GCD) {
             game = new GreatestCommonDivisor();
+        } else if (menuOption == Menu.Option.PROGRESSION) {
+            game = new Progression();
         } else {
             game = new Even();
         }

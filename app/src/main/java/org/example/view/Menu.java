@@ -10,6 +10,7 @@ public interface Menu {
         EVEN(2),
         CALC(3),
         GCD(4),
+        PROGRESSION(5),
         EXIT(0);
 
         Option(int number) {

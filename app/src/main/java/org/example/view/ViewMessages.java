@@ -17,11 +17,10 @@ public interface ViewMessages {
         final StringBuilder sb = new StringBuilder();
 
         sb.append(getMenuIntroMessage());
-        sb.append(System.lineSeparator());
 
         for (Menu.Option option : menuOptions) {
-            sb.append(getMenuOptionMessage(option));
             sb.append(System.lineSeparator());
+            sb.append(getMenuOptionMessage(option));
         }
 
         return sb.toString();

@@ -3,7 +3,8 @@ package org.example.games;
 public enum GameType {
     EVEN,
     CALC,
-    GCD;
+    GCD,
+    PROGRESSION;
 
     public static GameType of(Game<?> game) {
         if (game instanceof Calc) {
@@ -12,6 +13,10 @@ public enum GameType {
 
         if (game instanceof GreatestCommonDivisor) {
             return GCD;
+        }
+
+        if (game instanceof Progression) {
+            return PROGRESSION;
         }
 
         return EVEN;

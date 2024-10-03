@@ -11,7 +11,7 @@ public class EngViewMessages implements ViewMessages {
 
     @Override
     public String getHelloMessage(String userName) {
-        return String.format("Hello, $s!", userName) ;
+        return "Hello, " + userName + "!";
     }
 
     @Override
@@ -33,6 +33,9 @@ public class EngViewMessages implements ViewMessages {
             }
             case GCD -> {
                 return "GCD";
+            }
+            case PROGRESSION -> {
+                return "Progression";
             }
             case EXIT -> {
                 return "Exit";
@@ -60,6 +63,9 @@ public class EngViewMessages implements ViewMessages {
             case GCD -> {
                 return "Find the greatest common divisor of given numbers.";
             }
+            case PROGRESSION -> {
+                return "What number is missing in the progression?";
+            }
         }
 
         return "Unhandled game type";
@@ -67,7 +73,7 @@ public class EngViewMessages implements ViewMessages {
 
     @Override
     public String getQuestionMessage(String question) {
-        return "Question: " + question;
+        return "Question: " + question + "\nYour answer: ";
     }
 
     @Override

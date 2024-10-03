@@ -49,7 +49,7 @@ public class CliView implements View {
 
     @Override
     public String showQuestion(String question) {
-        System.out.println(messages.getQuestionMessage(question));
+        System.out.print(messages.getQuestionMessage(question));
         return scanner.next();
     }
 
