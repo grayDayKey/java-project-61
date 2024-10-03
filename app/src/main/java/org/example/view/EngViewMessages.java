@@ -31,6 +31,9 @@ public class EngViewMessages implements ViewMessages {
             case CALC -> {
                 return "Calc";
             }
+            case GCD -> {
+                return "GCD";
+            }
             case EXIT -> {
                 return "Exit";
             }
@@ -53,6 +56,9 @@ public class EngViewMessages implements ViewMessages {
             }
             case CALC -> {
                 return "What is the result of the expression?";
+            }
+            case GCD -> {
+                return "Find the greatest common divisor of given numbers.";
             }
         }
 

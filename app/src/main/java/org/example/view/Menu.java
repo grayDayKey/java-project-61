@@ -9,6 +9,7 @@ public interface Menu {
         GREET(1),
         EVEN(2),
         CALC(3),
+        GCD(4),
         EXIT(0);
 
         Option(int number) {
