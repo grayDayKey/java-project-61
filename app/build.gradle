@@ -17,17 +17,19 @@ repositories {
     mavenCentral()
 }
 
-application {
-    mainClass = 'org.example.App'
-}
-
-run {
-    standardInput = System.in
-}
-
 dependencies {
     // This dependency is used by the application.
     implementation libs.guava
+}
+
+testing {
+    suites {
+        // Configure the built-in test suite
+        test {
+            // Use JUnit Jupiter test framework
+            useJUnitJupiter('5.10.3')
+        }
+    }
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -35,6 +37,10 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
+}
+
+run {
+    standardInput = System.in
 }
 
 application {

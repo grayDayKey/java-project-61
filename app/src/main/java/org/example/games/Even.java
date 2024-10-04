@@ -2,6 +2,8 @@ package org.example.games;
 
 import org.example.util.Util;
 
+import java.util.Random;
+
 public class Even extends Game<Integer> {
 
     private static final String YES_ANSWER = "yes";
