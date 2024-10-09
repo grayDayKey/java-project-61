@@ -17,9 +17,9 @@ import io.hexlet.view.EngViewMessages;
 import io.hexlet.view.ViewMessages;
 import io.hexlet.view.Menu;
 
-public final class App {
+public final class Application {
 
-    private App() {
+    private Application() {
 
     }
 
