@@ -27,6 +27,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
 }
 
+
 tasks.test {
     useJUnitPlatform()
     // https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
@@ -47,4 +48,11 @@ compileKotlin.kotlinOptions {
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
+}
+
+tasks.register<Copy>("install") {
+    description = "Runs installDist when install is executed"
+    group = "Installation"
+
+    dependsOn("installDist")
 }
