@@ -10,8 +10,8 @@ public final class CliView implements View {
     private final ViewMessages messages;
     private final Scanner scanner;
 
-    public CliView(ViewMessages messages) {
-        this.messages = messages;
+    public CliView(ViewMessages viewMessages) {
+        messages = viewMessages;
         scanner = new Scanner(System.in);
     }
 

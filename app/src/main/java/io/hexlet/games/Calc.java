@@ -14,8 +14,8 @@ public final class Calc extends Game<String> {
 
         private final String symbol;
 
-        Operator(String symbol) {
-            this.symbol = symbol;
+        Operator(String s) {
+            symbol = s;
         }
 
         public static Operator getRandom() {

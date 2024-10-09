@@ -14,8 +14,8 @@ public interface Menu {
         PRIME(6),
         EXIT(0);
 
-        Option(int number) {
-            this.number = number;
+        Option(int num) {
+            number = num;
         }
 
         private final int number;
