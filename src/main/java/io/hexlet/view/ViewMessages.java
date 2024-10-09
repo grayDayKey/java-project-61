@@ -1,6 +1,6 @@
-package org.example.view;
+package io.hexlet.view;
 
-import org.example.games.GameType;
+import io.hexlet.games.GameType;
 
 public interface ViewMessages {
 

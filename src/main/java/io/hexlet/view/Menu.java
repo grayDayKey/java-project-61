@@ -1,4 +1,4 @@
-package org.example.view;
+package io.hexlet.view;
 
 import java.util.Arrays;
 import java.util.Optional;

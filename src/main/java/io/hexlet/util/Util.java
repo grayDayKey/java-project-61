@@ -1,8 +1,8 @@
-package org.example.util;
+package io.hexlet.util;
 
 import java.util.Random;
 
-public class Util {
+public final class Util {
 
     private Util() {
 

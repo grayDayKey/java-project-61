@@ -1,6 +1,6 @@
-package org.example.view;
+package io.hexlet.view;
 
-import org.example.games.GameType;
+import io.hexlet.games.GameType;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -55,7 +55,10 @@ public class CliView implements View {
 
     @Override
     public void showAnswerResultMessage(boolean isCorrectAnswer, String answer, String correctAnswer) {
-        System.out.println(isCorrectAnswer ?  messages.getCorrectAnswerMessage() : messages.getWrongAnswerMessage(answer, correctAnswer));
+        System.out.println(isCorrectAnswer
+                ? messages.getCorrectAnswerMessage()
+                : messages.getWrongAnswerMessage(answer, correctAnswer)
+        );
     }
 
     @Override

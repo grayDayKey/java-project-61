@@ -1,4 +1,4 @@
-package org.example.games;
+package io.hexlet.games;
 
 public enum GameType {
     EVEN,

@@ -1,6 +1,6 @@
-package org.example.view;
+package io.hexlet.view;
 
-import org.example.games.GameType;
+import io.hexlet.games.GameType;
 
 public class EngViewMessages implements ViewMessages {
 
@@ -43,9 +43,10 @@ public class EngViewMessages implements ViewMessages {
             case EXIT -> {
                 return "Exit";
             }
+            default -> {
+                return "Unhandled menu option";
+            }
         }
-
-        return "Unhandled menu option";
     }
 
     @Override
@@ -72,9 +73,10 @@ public class EngViewMessages implements ViewMessages {
             case PRIME -> {
                 return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
             }
+            default -> {
+                return "Unhandled game type";
+            }
         }
-
-        return "Unhandled game type";
     }
 
     @Override

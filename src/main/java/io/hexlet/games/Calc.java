@@ -1,6 +1,6 @@
-package org.example.games;
+package io.hexlet.games;
 
-import org.example.util.Util;
+import io.hexlet.util.Util;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -50,8 +50,7 @@ public class Calc extends Game<String> {
             case PROD -> {
                 return a * b;
             }
+            default -> throw new IllegalArgumentException();
         }
-
-        throw new IllegalArgumentException();
     }
 }

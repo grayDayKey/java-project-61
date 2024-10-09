@@ -1,6 +1,6 @@
-package org.example.games;
+package io.hexlet.games;
 
-import org.example.util.Util;
+import io.hexlet.util.Util;
 
 public class Progression extends Game<String> {
 
