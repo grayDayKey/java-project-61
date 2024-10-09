@@ -30,7 +30,9 @@ public class CliView implements View {
     public Menu.Option showMenu() {
         System.out.println(messages.getMenuMessage());
         try {
-            final Optional<Menu.Option> option = Menu.Option.of(scanner.nextInt());
+            final String input = scanner.next();
+            System.out.println(input);
+            final Optional<Menu.Option> option = Menu.Option.of(Integer.parseInt(input));
 
             if (option.isPresent()) {
                 return option.get();
