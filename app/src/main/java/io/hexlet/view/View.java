@@ -2,11 +2,13 @@ package io.hexlet.view;
 
 import io.hexlet.games.GameType;
 
+import java.util.Optional;
+
 public interface View {
 
     String showGreetings();
 
-    Menu.Option showMenu();
+    Optional<Menu.Option> showMenu();
 
     void showRules(GameType gameType);
 

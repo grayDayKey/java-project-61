@@ -17,6 +17,8 @@ import io.hexlet.view.EngViewMessages;
 import io.hexlet.view.ViewMessages;
 import io.hexlet.view.Menu;
 
+import java.util.Optional;
+
 public final class Application {
 
     private Application() {
@@ -28,7 +30,13 @@ public final class Application {
         final View view = new CliView(messages);
 
         final String userName = view.showGreetings();
-        final Menu.Option menuOption = view.showMenu();
+        final Optional<Menu.Option> maybeMenuOption = view.showMenu();
+
+        if (maybeMenuOption.isEmpty()) {
+            return;
+        }
+
+        final Menu.Option menuOption = maybeMenuOption.get();
 
         if (menuOption == Menu.Option.EXIT) {
             return;
