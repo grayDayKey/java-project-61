@@ -18,10 +18,14 @@ public interface Menu {
             this.number = number;
         }
 
-        final int number;
+        private final int number;
+
+        public int getNumber() {
+            return number;
+        }
 
         public static Optional<Option> of(int maybeOptionNumber) {
-            return Arrays.stream(Option.values()).filter((el) -> el.number == maybeOptionNumber).findFirst();
+            return Arrays.stream(Option.values()).filter((el) -> el.getNumber() == maybeOptionNumber).findFirst();
         }
     }
 }

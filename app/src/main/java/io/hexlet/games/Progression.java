@@ -2,7 +2,7 @@ package io.hexlet.games;
 
 import io.hexlet.util.Util;
 
-public class Progression extends Game<String> {
+public final class Progression extends Game<String> {
 
     @Override
     public QuestionAndAnswer<String> getQuestionAndAnswer() {

@@ -2,7 +2,7 @@ package io.hexlet.games;
 
 import io.hexlet.util.Util;
 
-public class Even extends Game<Integer> {
+public final class Even extends Game<Integer> {
 
     private static final String YES_ANSWER = "yes";
     private static final String NO_ANSWER = "no";

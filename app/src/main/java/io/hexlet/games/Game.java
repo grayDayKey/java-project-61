@@ -2,11 +2,11 @@ package io.hexlet.games;
 
 public abstract class Game<T> {
 
-    static int defaultWinCondition = 3;
-    static int defaultLoseCondition = 1;
+    final static int DEFAULT_WIN_CONDITION = 3;
+    final static int DEFAULT_LOSE_CONDITION = 1;
 
     public Game() {
-        this(defaultWinCondition, defaultLoseCondition);
+        this(DEFAULT_WIN_CONDITION, DEFAULT_LOSE_CONDITION);
     }
 
     public Game(int winCondition, int loseCondition) {

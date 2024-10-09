@@ -28,7 +28,7 @@ public interface ViewMessages {
 
 
     default String getMenuOptionMessage(Menu.Option option) {
-        return String.format("%d - %s", option.number, getMenuOptionTitle(option));
+        return String.format("%d - %s", option.getNumber(), getMenuOptionTitle(option));
     }
 
     String getInvalidMenuOptionMessage();

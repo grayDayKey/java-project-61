@@ -5,7 +5,7 @@ import io.hexlet.games.GameType;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class CliView implements View {
+public final class CliView implements View {
 
     private final ViewMessages messages;
     private final Scanner scanner;

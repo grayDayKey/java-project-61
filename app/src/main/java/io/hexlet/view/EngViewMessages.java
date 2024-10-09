@@ -2,7 +2,7 @@ package io.hexlet.view;
 
 import io.hexlet.games.GameType;
 
-public class EngViewMessages implements ViewMessages {
+public final class EngViewMessages implements ViewMessages {
 
     @Override
     public String getGreetMessage() {

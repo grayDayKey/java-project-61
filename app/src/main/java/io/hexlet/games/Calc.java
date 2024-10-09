@@ -5,14 +5,14 @@ import io.hexlet.util.Util;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class Calc extends Game<String> {
+public final class Calc extends Game<String> {
 
     public enum Operator {
         PLUS("+"),
         MINUS("-"),
         PROD("*");
 
-        final String symbol;
+        private final String symbol;
 
         Operator(String symbol) {
             this.symbol = symbol;
