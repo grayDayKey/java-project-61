@@ -29,7 +29,6 @@ public final class Application {
         final ViewMessages messages = new EngViewMessages();
         final View view = new CliView(messages);
 
-        final String userName = view.showGreetings();
         final Optional<Menu.Option> maybeMenuOption = view.showMenu();
 
         if (maybeMenuOption.isEmpty()) {
@@ -61,6 +60,7 @@ public final class Application {
             game = new Even();
         }
 
+        final String userName = view.showGreetings();
         view.showRules(GameType.of(game));
 
         while (!game.isWinConditionsAchieved() && !game.isLoseConditionsAchieved()) {
